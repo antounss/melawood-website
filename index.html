@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1f2124">
+<meta name="description" content="MelaWood — custom kitchens, bedrooms and living spaces, plus handmade wooden pieces and a Christmas collection.">
+<meta property="og:title" content="MelaWood — Custom Woodwork & Handmade Pieces">
+<meta property="og:description" content="Custom home designs, handmade products and a wooden Christmas collection.">
+<meta property="og:image" content="mark.png">
+<link rel="icon" href="mark.png">
+<link rel="apple-touch-icon" href="mark.png">
+<title>MelaWood — Custom Woodwork & Handmade Pieces</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --char:#1f2124; --char2:#2b2d31; --char3:#383b40;
+  --gold:#c9a063; --gold2:#e8c891; --gold3:#a47c43;
+  --oak:#c08a52; --oakd:#8a5a32; --steel:#8f9297;
+  --cream:#f5efe6; --paper:#fbf8f3; --ink:#1f2124; --muted:#6e6a64;
+  --pine:#1f3a30;
+  --r:14px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{width:min(1180px,92vw);margin-inline:auto}
+.display{font-family:Saira,sans-serif;font-weight:600;letter-spacing:.02em;line-height:1.05;text-transform:uppercase}
+.accent{font-family:Fraunces,serif;font-style:italic;font-weight:300;text-transform:none;letter-spacing:0;color:var(--gold)}
+.eyebrow{font-family:Saira,sans-serif;font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold3);display:flex;align-items:center;gap:.8rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.dark .eyebrow{color:var(--gold2)}
+.goldline{height:3px;width:100%;background:linear-gradient(90deg,var(--char) 0 12%,transparent 12% 14%,var(--gold3) 14%,var(--gold2) 50%,var(--gold3) 86%,transparent 86% 88%,var(--char) 88%)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.6rem;border-radius:999px;font-family:Saira,sans-serif;font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;transition:.35s var(--ease)}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold) 55%,var(--gold3));color:var(--char);box-shadow:0 10px 30px -10px rgba(201,160,99,.6)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(201,160,99,.75)}
+.btn-ghost{border:1px solid rgba(255,255,255,.25);color:#fff}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+.btn-dark{background:var(--char);color:#fff}
+.btn-dark:hover{background:var(--char3)}
+.btn .arr{transition:transform .3s}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* ---------- header ---------- */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:.4s var(--ease)}
+header.solid{background:rgba(31,33,36,.92);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(201,160,99,.18)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;align-items:center;gap:.8rem;color:#fff}
+.brand img{width:38px;height:auto}
+.brand span{font-family:Saira,sans-serif;font-weight:600;font-size:1.15rem;letter-spacing:.28em}
+.links{display:flex;gap:2rem;align-items:center}
+.links a{font-family:Saira,sans-serif;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.72);position:relative;padding:.4rem 0;transition:color .3s}
+.links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold);transition:right .35s var(--ease)}
+.links a:hover,.links a.on{color:#fff}
+.links a.on::after,.links a:hover::after{right:0}
+.links a.xmas{color:var(--gold2)}
+.nav-r{display:flex;align-items:center;gap:1rem}
+.cart-btn{position:relative;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;color:#fff;transition:.3s}
+.cart-btn:hover{border-color:var(--gold)}
+.cart-count{position:absolute;top:-4px;right:-4px;background:var(--gold);color:var(--char);font-size:.68rem;font-weight:700;min-width:19px;height:19px;border-radius:10px;display:grid;place-items:center;transform:scale(0);transition:.3s var(--ease)}
+.cart-count.show{transform:scale(1)}
+.burger{display:none;width:44px;height:44px;color:#fff}
+@media (max-width:900px){
+  .links{position:fixed;inset:78px 0 auto 0;background:var(--char);flex-direction:column;gap:0;padding:1rem 0 2rem;transform:translateY(-120%);transition:.45s var(--ease);z-index:-1}
+  .links.open{transform:none}
+  .links a{padding:1rem 0;font-size:.9rem}
+  .burger{display:grid;place-items:center}
+}
+
+/* ---------- pages ---------- */
+.page{display:none}
+.page.active{display:block;animation:pagein .7s var(--ease)}
+@keyframes pagein{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+section{padding:110px 0}
+.dark{background:var(--char);color:#e9e5df}
+.dark p{color:#b9b4ac}
+.cream{background:var(--cream)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:3.2rem;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(2rem,4.2vw,3.2rem);margin-top:.8rem}
+.sec-head p{max-width:440px;color:var(--muted)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;background:radial-gradient(ellipse at 75% 40%,#34363b 0,var(--char) 60%);color:#fff;position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 0 80px}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 1px,transparent 1px 120px)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;position:relative}
+.hero h1{font-size:clamp(2.7rem,6.4vw,5.4rem);margin:1.4rem 0 1.6rem}
+.hero h1 .accent{display:block;font-size:.82em;margin-top:.2rem}
+.hero p.lead{font-size:1.12rem;color:#bdb7ae;max-width:520px;margin-bottom:2.4rem}
+.hero .ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-mark{position:relative;display:grid;place-items:center}
+.hero-mark img{width:min(420px,80%);filter:drop-shadow(0 40px 60px rgba(0,0,0,.55));animation:float 7s ease-in-out infinite;position:relative;z-index:2}
+.hero-mark .ring{position:absolute;width:min(560px,105%);aspect-ratio:1;border:1px solid rgba(201,160,99,.18);clip-path:polygon(25% 6.7%,75% 6.7%,100% 50%,75% 93.3%,25% 93.3%,0 50%);}
+.hero-mark .ring.r2{width:min(680px,125%);border-color:rgba(201,160,99,.08);animation:spin 60s linear infinite}
+.hex-outline{position:absolute;inset:0;margin:auto;width:min(560px,105%);aspect-ratio:1}
+@keyframes float{50%{transform:translateY(-14px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-stats{display:flex;gap:2.6rem;margin-top:3.2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08)}
+.hero-stats b{font-family:Saira;font-size:1.9rem;font-weight:500;color:var(--gold2);display:block;line-height:1}
+.hero-stats small{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#8d8880}
+.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);width:1px;height:56px;background:linear-gradient(var(--gold),transparent);animation:cue 2.4s infinite}
+@keyframes cue{0%{transform:translateX(-50%) scaleY(0);transform-origin:top}50%{transform:translateX(-50%) scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:translateX(-50%) scaleY(0);transform-origin:bottom}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-mark{order:-1}.hero-mark img{width:200px}.hero-mark .ring{width:280px}.hero-mark .ring.r2{width:340px}.hex-outline{width:260px}.hero-stats{gap:1.6rem}}
+
+/* ---------- pillars ---------- */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.pillar{background:#fff;border-radius:var(--r);padding:2.4rem 2rem;position:relative;overflow:hidden;border:1px solid #ece4d8;transition:.45s var(--ease);cursor:pointer}
+.pillar:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(31,33,36,.35);border-color:var(--gold)}
+.pillar .num{font-family:Saira;font-size:.8rem;letter-spacing:.2em;color:var(--gold3)}
+.pillar h3{font-family:Saira;font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:1.3rem;margin:1.2rem 0 .7rem}
+.pillar p{color:var(--muted);font-size:.95rem}
+.pillar .ico{width:58px;height:58px;margin-top:.4rem}
+.pillar .go{margin-top:1.6rem;font-family:Saira;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--char);display:flex;gap:.5rem;align-items:center}
+.pillar::after{content:"";position:absolute;right:-60px;top:-60px;width:160px;height:160px;clip-path:polygon(25% 6.7%,75% 6.7%,100% 50%,75% 93.3%,25% 93.3%,0 50%);background:linear-gradient(135deg,rgba(201,160,99,.18),transparent);transition:.5s}
+.pillar:hover::after{transform:rotate(30deg) scale(1.2)}
+@media(max-width:900px){.pillars{grid-template-columns:1fr}}
+
+/* ---------- design cards ---------- */
+.grid-designs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.dcard{border-radius:var(--r);overflow:hidden;background:#fff;cursor:pointer;position:relative;transition:.45s var(--ease);border:1px solid #ece4d8}
+.dcard{display:flex;flex-direction:column}
+.dcard .art{aspect-ratio:4/3;overflow:hidden;background:#efe8dd;flex:1}
+.dcard .art>*{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.dcard:hover .art>*{transform:scale(1.06)}
+.dcard:hover{box-shadow:0 30px 60px -30px rgba(31,33,36,.4)}
+.dcard .meta{padding:1.3rem 1.4rem 1.5rem;display:flex;justify-content:space-between;align-items:end;gap:1rem}
+.dcard .cat{font-family:Saira;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold3)}
+.dcard h3{font-family:Saira;font-weight:500;font-size:1.15rem;letter-spacing:.03em;margin-top:.2rem}
+.dcard .plus{width:38px;height:38px;border-radius:50%;border:1px solid #ddd3c4;display:grid;place-items:center;flex:none;transition:.3s}
+.dcard:hover .plus{background:var(--char);color:var(--gold2);border-color:var(--char)}
+.dcard.wide{grid-column:span 2}
+.dcard.wide .art{aspect-ratio:auto;height:100%;min-height:300px}
+@media(max-width:900px){.grid-designs{grid-template-columns:1fr}.dcard.wide{grid-column:auto}}
+.chips{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.chip{padding:.6rem 1.2rem;border-radius:999px;border:1px solid #ddd3c4;font-family:Saira;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;transition:.3s;background:#fff}
+.chip:hover{border-color:var(--gold)}
+.chip.on{background:var(--char);color:var(--gold2);border-color:var(--char)}
+
+/* ---------- process ---------- */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.step{padding:2rem 1.6rem;border-left:1px solid rgba(255,255,255,.08);position:relative}
+.step:first-child{border-left:0}
+.step .n{font-family:Saira;font-size:3.4rem;font-weight:300;color:transparent;-webkit-text-stroke:1px var(--gold);line-height:1}
+.step h4{font-family:Saira;text-transform:uppercase;letter-spacing:.14em;font-weight:500;color:#fff;margin:1.2rem 0 .5rem}
+.step p{font-size:.92rem}
+@media(max-width:900px){.process{grid-template-columns:1fr 1fr}.step:nth-child(3){border-left:0}}
+
+/* ---------- products ---------- */
+.grid-products{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pcard{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid #ece4d8;display:flex;flex-direction:column;transition:.45s var(--ease);position:relative}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(31,33,36,.35)}
+.pcard .art{aspect-ratio:6/5;background:radial-gradient(circle at 50% 40%,#fff,#f1eadf);display:grid;place-items:center;overflow:hidden;cursor:pointer}
+.pcard .art>*{width:82%;transition:transform .8s var(--ease)}
+.pcard .art img{width:100%;height:100%;object-fit:cover}
+.pcard:hover .art>*{transform:scale(1.05) rotate(-1deg)}
+.pcard .body{padding:1.4rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.pcard .cat{font-family:Saira;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold3)}
+.pcard h3{font-family:Saira;font-weight:500;font-size:1.15rem;letter-spacing:.02em}
+.pcard p{font-size:.88rem;color:var(--muted);flex:1}
+.pcard .row{display:flex;justify-content:space-between;align-items:center;margin-top:.8rem}
+.price{font-family:Saira;font-size:1.3rem;font-weight:500}
+.add{display:flex;align-items:center;gap:.5rem;padding:.65rem 1.1rem;border-radius:999px;background:var(--char);color:#fff;font-family:Saira;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;transition:.3s}
+.add:hover{background:var(--gold);color:var(--char)}
+.add.done{background:var(--gold);color:var(--char)}
+.badge{position:absolute;top:14px;left:14px;z-index:2;background:var(--char);color:var(--gold2);font-family:Saira;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;padding:.35rem .75rem;border-radius:999px}
+.badge.red{background:#8e2a2a;color:#fff}
+@media(max-width:900px){.grid-products{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid-products{grid-template-columns:1fr}}
+
+/* ---------- page heroes ---------- */
+.phero{padding:170px 0 90px;background:var(--char);color:#fff;position:relative;overflow:hidden}
+.phero::after{content:"";position:absolute;right:-8%;top:50%;transform:translateY(-50%);width:520px;aspect-ratio:1;clip-path:polygon(25% 6.7%,75% 6.7%,100% 50%,75% 93.3%,25% 93.3%,0 50%);background:linear-gradient(135deg,rgba(201,160,99,.14),rgba(201,160,99,0) 60%);}
+.phero h1{font-size:clamp(2.6rem,6vw,4.8rem);margin:1.2rem 0}
+.phero p{max-width:560px;color:#b9b4ac;font-size:1.08rem}
+.phero .goldline{position:absolute;bottom:0;left:0}
+
+/* ---------- story ---------- */
+.story-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.story-intro .big{font-family:Fraunces,serif;font-style:italic;font-weight:300;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.35;color:var(--char)}
+.story-intro p+p{margin-top:1rem}
+.story-intro .txt p{color:var(--muted)}
+.timeline{position:relative;margin-top:1rem}
+.timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(transparent,var(--gold) 10%,var(--gold) 90%,transparent)}
+.tl{display:grid;grid-template-columns:1fr 80px 1fr;align-items:center;margin-bottom:3.4rem}
+.tl .dot{width:22px;height:22px;margin:auto;clip-path:polygon(25% 6.7%,75% 6.7%,100% 50%,75% 93.3%,25% 93.3%,0 50%);background:var(--gold)}
+.tl .card{background:var(--char2);padding:2rem;border-radius:var(--r);border:1px solid rgba(201,160,99,.15)}
+.tl .card h4{font-family:Saira;text-transform:uppercase;letter-spacing:.12em;color:#fff;font-weight:500;margin-bottom:.5rem}
+.tl .phase{font-family:Saira;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2);margin-bottom:.6rem}
+.tl:nth-child(even) .card{grid-column:3}
+.tl:nth-child(even) .dot{grid-column:2;grid-row:1}
+@media(max-width:900px){.story-intro{grid-template-columns:1fr;gap:2rem}.timeline::before{left:11px}.tl{grid-template-columns:24px 1fr;gap:1.2rem}.tl .card,.tl:nth-child(even) .card{grid-column:2}.tl .dot,.tl:nth-child(even) .dot{grid-column:1;grid-row:1}}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.value{padding:2.2rem;border-top:2px solid var(--gold)}
+.value h4{font-family:Saira;text-transform:uppercase;letter-spacing:.12em;margin:.8rem 0 .5rem;font-weight:600}
+.value p{color:var(--muted);font-size:.95rem}
+@media(max-width:900px){.values{grid-template-columns:1fr}}
+.quote{text-align:center;max-width:820px;margin:auto}
+.quote q{font-family:Fraunces,serif;font-style:italic;font-weight:300;font-size:clamp(1.6rem,3.2vw,2.5rem);line-height:1.35;color:#fff;quotes:"“" "”"}
+.quote .by{margin-top:1.6rem;font-family:Saira;letter-spacing:.24em;text-transform:uppercase;font-size:.78rem;color:var(--gold2)}
+.material{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--r);overflow:hidden;min-height:260px}
+.material div{padding:2.6rem;display:flex;flex-direction:column;justify-content:end;color:#fff;position:relative}
+.material h4{font-family:Saira;text-transform:uppercase;letter-spacing:.2em;font-size:1.4rem;font-weight:600}
+.material p{color:rgba(255,255,255,.85);font-size:.92rem;max-width:320px}
+.m-wood{background:repeating-linear-gradient(92deg,rgba(0,0,0,.06) 0 2px,transparent 2px 9px),repeating-linear-gradient(88deg,rgba(255,255,255,.05) 0 1px,transparent 1px 23px),linear-gradient(135deg,#c99459,#a8703c)}
+.m-steel{background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 3px),linear-gradient(135deg,#a3a6aa,#6c6f74)}
+@media(max-width:700px){.material{grid-template-columns:1fr}}
+
+/* ---------- christmas ---------- */
+.xmas-hero{background:radial-gradient(ellipse at 30% 0,#2a4a3d 0,var(--pine) 40%,#132620 100%);color:#fff;padding:170px 0 110px;position:relative;overflow:hidden}
+.snow{position:absolute;inset:0;pointer-events:none}
+.snow i{position:absolute;top:-10px;width:4px;height:4px;border-radius:50%;background:#fff;opacity:.7;animation:fall linear infinite}
+@keyframes fall{to{transform:translate3d(var(--dx),110vh,0)}}
+.xmas-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;position:relative}
+.xmas-hero h1{font-size:clamp(2.6rem,6vw,5rem);margin:1.2rem 0}
+.xmas-hero p{color:#c7d3cb;max-width:520px;font-size:1.08rem}
+.countdown{display:flex;gap:1rem;margin:2.2rem 0}
+.countdown div{background:rgba(255,255,255,.06);border:1px solid rgba(232,200,145,.3);border-radius:12px;padding:1rem 1.2rem;min-width:84px;text-align:center}
+.countdown b{display:block;font-family:Saira;font-size:2rem;font-weight:500;color:var(--gold2);line-height:1}
+.countdown small{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#a9bab0}
+.xmas-art{display:grid;place-items:center}
+.xmas-art svg{width:min(380px,90%);filter:drop-shadow(0 30px 50px rgba(0,0,0,.45))}
+.xmas-strip{background:var(--char);color:var(--gold2);padding:1rem 0;overflow:hidden;white-space:nowrap;font-family:Saira;letter-spacing:.3em;text-transform:uppercase;font-size:.8rem}
+.xmas-strip span{display:inline-block;animation:marq 30s linear infinite}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media(max-width:900px){.xmas-grid{grid-template-columns:1fr}.xmas-art svg{width:220px}}
+.gift-box{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;background:#fff;border-radius:var(--r);padding:3rem;border:1px solid #ece4d8}
+@media(max-width:800px){.gift-box{grid-template-columns:1fr;padding:2rem}}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem}
+.cinfo .item{display:flex;gap:1rem;padding:1.4rem 0;border-bottom:1px solid #e6ddd0}
+.cinfo .item svg{flex:none;width:22px;color:var(--gold3);margin-top:3px}
+.cinfo small{display:block;font-family:Saira;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.cinfo b{font-weight:600}
+form.card{background:#fff;padding:2.6rem;border-radius:var(--r);border:1px solid #ece4d8;display:grid;gap:1.1rem}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+label{font-family:Saira;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:grid;gap:.4rem}
+input,select,textarea{font:inherit;font-size:.95rem;padding:.85rem 1rem;border:1px solid #e1d8ca;border-radius:10px;background:var(--paper);color:var(--ink);transition:.25s;text-transform:none;letter-spacing:0}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,160,99,.18)}
+textarea{min-height:130px;resize:vertical}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}.f2{grid-template-columns:1fr}}
+
+/* ---------- CTA band ---------- */
+.cta-band{background:linear-gradient(120deg,var(--char) 0,var(--char2) 100%);color:#fff;border-radius:22px;padding:4rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;position:relative;overflow:hidden;flex-wrap:wrap}
+.cta-band h2{font-size:clamp(1.8rem,3.4vw,2.8rem);max-width:600px}
+.cta-band::before{content:"";position:absolute;left:-60px;bottom:-120px;width:300px;aspect-ratio:1;clip-path:polygon(25% 6.7%,75% 6.7%,100% 50%,75% 93.3%,25% 93.3%,0 50%);background:rgba(201,160,99,.08)}
+
+/* ---------- footer ---------- */
+footer{background:#17181a;color:#9d978e;padding:80px 0 30px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:3rem}
+footer h5{font-family:Saira;letter-spacing:.22em;text-transform:uppercase;font-size:.75rem;color:#fff;margin-bottom:1.2rem;font-weight:500}
+footer li{list-style:none;margin:.55rem 0;font-size:.92rem}
+footer li a:hover{color:var(--gold2)}
+.fbot{margin-top:60px;padding-top:24px;border-top:1px solid #2a2b2e;display:flex;justify-content:space-between;font-size:.8rem;flex-wrap:wrap;gap:1rem}
+@media(max-width:800px){.fgrid{grid-template-columns:1fr 1fr}}
+
+/* ---------- drawer / modal ---------- */
+.scrim{position:fixed;inset:0;background:rgba(15,16,18,.6);backdrop-filter:blur(4px);z-index:80;opacity:0;pointer-events:none;transition:.35s}
+.scrim.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);background:var(--paper);z-index:90;transform:translateX(100%);transition:.5s var(--ease);display:flex;flex-direction:column}
+.drawer.show{transform:none}
+.drawer-h{padding:1.6rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e6ddd0}
+.drawer-h h3{font-family:Saira;text-transform:uppercase;letter-spacing:.18em;font-weight:500}
+.drawer-items{flex:1;overflow:auto;padding:1rem 1.6rem}
+.ci{display:grid;grid-template-columns:64px 1fr auto;gap:1rem;align-items:center;padding:1rem 0;border-bottom:1px solid #eee5d8}
+.ci .thumb{width:64px;height:64px;border-radius:10px;background:#f1eadf;display:grid;place-items:center;overflow:hidden}
+.ci .thumb>*{width:90%}
+.ci h4{font-family:Saira;font-weight:500;font-size:.95rem}
+.qty{display:flex;align-items:center;gap:.5rem;margin-top:.3rem}
+.qty button{width:26px;height:26px;border-radius:50%;border:1px solid #ddd3c4;font-size:.9rem}
+.qty button:hover{border-color:var(--gold)}
+.drawer-f{padding:1.6rem;border-top:1px solid #e6ddd0;display:grid;gap:1rem}
+.total{display:flex;justify-content:space-between;font-family:Saira;font-size:1.2rem}
+.empty{text-align:center;padding:4rem 1rem;color:var(--muted)}
+.note{font-size:.78rem;color:var(--muted);text-align:center}
+.modal{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:4vw;pointer-events:none;opacity:0;transition:.35s}
+.modal.show{opacity:1;pointer-events:auto}
+.modal-box{background:var(--paper);border-radius:18px;overflow:hidden;width:min(1000px,100%);max-height:92vh;display:grid;grid-template-columns:1.3fr 1fr;transform:scale(.96);transition:.45s var(--ease)}
+.modal.show .modal-box{transform:none}
+.modal-art{background:#efe8dd;min-height:340px}
+.modal-art>*{width:100%;height:100%;object-fit:cover}
+.modal-body{padding:2.6rem;overflow:auto;position:relative}
+.modal-body h3{font-family:Saira;text-transform:uppercase;letter-spacing:.06em;font-size:1.7rem;font-weight:600;margin:.6rem 0 1rem;line-height:1.15}
+.modal-body p{color:var(--muted)}
+.specs{margin:1.6rem 0;display:grid;gap:.6rem}
+.specs div{display:flex;justify-content:space-between;border-bottom:1px dashed #ddd3c4;padding-bottom:.5rem;font-size:.9rem}
+.specs span{color:var(--muted)}
+.xbtn{position:absolute;top:1rem;right:1rem;width:40px;height:40px;border-radius:50%;border:1px solid #ddd3c4;display:grid;place-items:center;background:var(--paper);z-index:3}
+.xbtn:hover{border-color:var(--gold)}
+@media(max-width:800px){.modal-box{grid-template-columns:1fr;overflow:auto}.modal-art{min-height:240px}}
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,120px);background:var(--char);color:#fff;padding:.9rem 1.4rem;border-radius:999px;z-index:99;font-size:.9rem;display:flex;gap:.6rem;align-items:center;transition:.45s var(--ease);box-shadow:0 20px 40px -10px rgba(0,0,0,.4)}
+.toast{opacity:0}.toast.show{transform:translate(-50%,0);opacity:1}
+.toast b{color:var(--gold2)}
+
+/* ================= PHONE OPTIMIZATION ================= */
+html,body{-webkit-tap-highlight-color:transparent}
+body.lock{overflow:hidden}
+.modal-box{position:relative}
+.xmas-grid>*,.hero-grid>*{min-width:0}
+header.menu-open{background:var(--char)}
+@media (max-width:700px){
+  section{padding:64px 0}
+  .wrap{width:calc(100vw - 32px)}
+  .sec-head{margin-bottom:2rem;gap:1.2rem}
+  .sec-head h2{font-size:1.85rem}
+  .nav{height:64px}
+  .brand img{width:32px}.brand span{font-size:1rem;letter-spacing:.22em}
+  .links{inset:64px 0 auto 0}
+  .cart-btn{width:40px;height:40px}
+  .hero{min-height:auto;padding:96px 0 64px}
+  .hero h1{font-size:2.5rem;margin:1rem 0 1.1rem}
+  .hero p.lead{font-size:1rem;margin-bottom:1.8rem}
+  .hero .ctas .btn{flex:1;justify-content:center;padding:.9rem 1rem}
+  .hero-stats{margin-top:2.2rem;gap:1rem;justify-content:space-between}
+  .hero-stats b{font-size:1.5rem}.hero-stats small{font-size:.62rem;letter-spacing:.1em}
+  .hero-mark img{width:170px}.hero-mark .ring{width:230px}.hero-mark .ring.r2{width:280px}.hex-outline{width:220px}
+  .scroll-cue{display:none}
+  .phero{padding:110px 0 54px}
+  .phero h1{font-size:2.4rem}
+  .phero p{font-size:.98rem}
+  .phero::after{width:300px;right:-40%}
+  .pillar{padding:1.8rem 1.5rem}
+  .process{grid-template-columns:1fr}
+  .step{border-left:0;border-top:1px solid rgba(255,255,255,.08);padding:1.4rem 0;display:grid;grid-template-columns:64px 1fr;column-gap:1rem}
+  .step:first-child{border-top:0}
+  .step .n{font-size:2.6rem;grid-row:span 2}.step h4{margin:.2rem 0 .3rem}
+  /* products: 2 per row, compact */
+  .grid-products{grid-template-columns:1fr 1fr;gap:.75rem}
+  .pcard .body{padding:.85rem .85rem 1rem;gap:.25rem}
+  .pcard h3{font-size:.95rem;line-height:1.25}
+  .pcard p{display:none}
+  .pcard .cat{font-size:.6rem;letter-spacing:.14em}
+  .pcard .row{flex-direction:column;align-items:stretch;gap:.6rem;margin-top:.5rem}
+  .price{font-size:1.1rem}
+  .add{justify-content:center;padding:.6rem .5rem;font-size:.68rem}
+  .badge{top:8px;left:8px;font-size:.55rem;padding:.3rem .55rem;letter-spacing:.14em}
+  .pcard:hover{transform:none}
+  /* designs: compact cards */
+  .grid-designs{gap:1rem}
+  .dcard .meta{padding:1rem 1.1rem 1.1rem}
+  .dcard.wide .art{min-height:0;aspect-ratio:4/3}
+  .chips{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px 1.6rem;padding:0 16px 4px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none}
+  /* story */
+  .tl{margin-bottom:1.6rem}.tl .card{padding:1.4rem}
+  .material div{padding:1.8rem;min-height:180px}
+  .value{padding:1.4rem 0}
+  /* christmas */
+  .xmas-hero{padding:100px 0 64px}
+  .xmas-hero h1{font-size:2.5rem}
+  .countdown{gap:.5rem;margin:1.6rem 0}
+  .countdown div{flex:1;min-width:0;padding:.75rem .3rem}
+  .countdown b{font-size:1.5rem}.countdown small{font-size:.56rem;letter-spacing:.1em}
+  .xmas-art{order:-1}.xmas-art svg{width:170px}
+  /* boxes & CTA */
+  .cta-band{padding:2.2rem 1.6rem;border-radius:18px}
+  .cta-band .btn,.gift-box .btn{width:100%;justify-content:center}
+  .gift-box{padding:1.6rem;gap:1.4rem}
+  .gift-box>div:last-child{justify-content:stretch!important}
+  /* contact */
+  form.card{padding:1.5rem}
+  form.card .btn{justify-self:stretch!important;justify-content:center}
+  input,select,textarea{font-size:16px}
+  /* modal as bottom sheet */
+  .modal{padding:0;place-items:end center}
+  .modal-box{border-radius:20px 20px 0 0;max-height:92vh;transform:translateY(40px)}
+  .modal-art{min-height:220px;max-height:260px}
+  .modal-body{padding:1.6rem 1.4rem 2rem;position:static}
+  .modal-body h3{font-size:1.4rem}
+  .xbtn{top:.8rem;right:.8rem}
+  .drawer-h,.drawer-f{padding:1.2rem}
+  .drawer-items{padding:.5rem 1.2rem}
+  footer{padding:56px 0 24px}
+  .fgrid{gap:2rem}
+  .fgrid>div:first-child{grid-column:1/-1}
+}
+</style>
+</head>
+<body>
+
+<!-- Shared SVG material patterns (wood, steel) used by every illustration -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+  <linearGradient id="gOak" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d6a066"/><stop offset="1" stop-color="#b47a43"/></linearGradient>
+  <linearGradient id="gOakL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6bd86"/><stop offset="1" stop-color="#cf9a5e"/></linearGradient>
+  <linearGradient id="gOakD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9a6538"/><stop offset="1" stop-color="#6f4625"/></linearGradient>
+  <linearGradient id="gSteel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b3b6ba"/><stop offset="1" stop-color="#7a7d82"/></linearGradient>
+  <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0d39f"/><stop offset=".5" stop-color="#c9a063"/><stop offset="1" stop-color="#9e7740"/></linearGradient>
+  <pattern id="wood" width="120" height="30" patternUnits="userSpaceOnUse"><rect width="120" height="30" fill="url(#gOak)"/><path d="M0 6 Q30 2 60 7 T120 5M0 15 Q40 19 80 14 T120 16M0 24 Q30 21 70 25 T120 23" stroke="#9c6534" stroke-opacity=".35" fill="none"/></pattern>
+  <pattern id="woodL" width="120" height="30" patternUnits="userSpaceOnUse"><rect width="120" height="30" fill="url(#gOakL)"/><path d="M0 7 Q30 3 60 8 T120 6M0 17 Q40 21 80 15 T120 18M0 26 Q30 23 70 27 T120 25" stroke="#b07a42" stroke-opacity=".3" fill="none"/></pattern>
+  <pattern id="woodD" width="120" height="30" patternUnits="userSpaceOnUse"><rect width="120" height="30" fill="url(#gOakD)"/><path d="M0 6 Q30 2 60 7 T120 5M0 16 Q40 20 80 14 T120 17M0 25 Q30 22 70 26 T120 24" stroke="#3e2512" stroke-opacity=".35" fill="none"/></pattern>
+  <pattern id="woodV" width="30" height="120" patternUnits="userSpaceOnUse"><rect width="30" height="120" fill="url(#gOak)"/><path d="M6 0 Q2 30 7 60 T5 120M15 0 Q19 40 14 80 T16 120M24 0 Q21 30 25 70 T23 120" stroke="#9c6534" stroke-opacity=".35" fill="none"/></pattern>
+  <pattern id="steel" width="4" height="100" patternUnits="userSpaceOnUse"><rect width="4" height="100" fill="url(#gSteel)"/><rect width="1" height="100" fill="#fff" fill-opacity=".12"/></pattern>
+  <radialGradient id="glow"><stop offset="0" stop-color="#ffe6b0" stop-opacity=".9"/><stop offset="1" stop-color="#ffe6b0" stop-opacity="0"/></radialGradient>
+</defs>
+</svg>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#home" class="brand"><img src="mark.png" alt="MelaWood logo"><span>MELAWOOD</span></a>
+    <nav class="links" id="links">
+      <a href="#home" data-p="home">Home</a>
+      <a href="#story" data-p="story">Our Story</a>
+      <a href="#designs" data-p="designs">Home Designs</a>
+      <a href="#shop" data-p="shop">Shop</a>
+      <a href="#christmas" data-p="christmas" class="xmas">✦ Christmas</a>
+      <a href="#contact" data-p="contact">Contact</a>
+    </nav>
+    <div class="nav-r">
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="burger" id="burger" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16M4 16h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HOME ================= -->
+<div class="page" id="p-home">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Custom Woodwork · Handmade Pieces</div>
+        <h1 class="display">Crafted in wood.<span class="accent">built to be lived with.</span></h1>
+        <p class="lead">From full kitchens and bedrooms to small pieces with a twist — every MelaWood creation is designed, cut and finished by hand in a family carpentry workshop.</p>
+        <div class="ctas">
+          <a href="#designs" class="btn btn-gold">View Home Designs <span class="arr">→</span></a>
+          <a href="#shop" class="btn btn-ghost">Shop Products</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>100%</b><small>Made by hand</small></div>
+          <div><b>2nd</b><small>Generation craft</small></div>
+          <div><b>∞</b><small>Custom sizes</small></div>
+        </div>
+      </div>
+      <div class="hero-mark">
+        <div class="ring r2"></div>
+        <svg class="hex-outline" viewBox="0 0 100 100"><polygon points="25,6.7 75,6.7 100,50 75,93.3 25,93.3 0,50" fill="none" stroke="rgba(201,160,99,.35)" stroke-width=".3"/></svg>
+        <img src="mark.png" alt="">
+      </div>
+    </div>
+    <div class="scroll-cue"></div>
+  </section>
+
+  <section class="cream">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><div class="eyebrow">What we make</div><h2 class="display">Three ways to bring<br>wood home</h2></div>
+        <p>Whether it's a full room or a single gift, the same hands and the same standard go into every piece.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal" data-go="designs">
+          <span class="num">01</span>
+          <svg class="ico" viewBox="0 0 60 60"><rect x="6" y="10" width="48" height="16" fill="url(#wood)" stroke="#1f2124"/><rect x="6" y="32" width="48" height="20" fill="url(#steel)" stroke="#1f2124"/><path d="M30 10v16M20 32v20M40 32v20" stroke="#1f2124"/></svg>
+          <h3>Home Designs</h3>
+          <p>Kitchens, bedrooms, wardrobes, TV walls and living spaces — designed around your space and built to measure.</p>
+          <div class="go">Explore projects →</div>
+        </div>
+        <div class="pillar reveal" data-go="shop">
+          <span class="num">02</span>
+          <svg class="ico" viewBox="0 0 60 60"><polygon points="12,24 30,14 48,24 48,46 30,56 12,46" fill="url(#wood)" stroke="#1f2124"/><polygon points="12,24 30,14 48,24 30,34" fill="url(#woodL)" stroke="#1f2124"/><path d="M24 22 Q30 6 36 22" fill="#fff" stroke="#1f2124"/></svg>
+          <h3>Handmade Products</h3>
+          <p>Tissue boxes, trays, phone stands and desk pieces — everyday objects, each with a special design twist.</p>
+          <div class="go">Visit the shop →</div>
+        </div>
+        <div class="pillar reveal" data-go="christmas">
+          <span class="num">03</span>
+          <svg class="ico" viewBox="0 0 60 60"><polygon points="30,8 46,30 14,30" fill="url(#woodL)" stroke="#1f2124"/><polygon points="30,20 50,46 10,46" fill="url(#wood)" stroke="#1f2124"/><rect x="26" y="46" width="8" height="8" fill="url(#woodD)" stroke="#1f2124"/><circle cx="30" cy="8" r="3" fill="url(#gGold)"/></svg>
+          <h3>Christmas Collection</h3>
+          <p>A limited seasonal line of wooden trees, ornaments and festive pieces — made for this Christmas only.</p>
+          <div class="go">See the collection →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><div class="eyebrow">Selected work</div><h2 class="display">Recent home designs</h2></div>
+        <a href="#designs" class="btn btn-dark">All projects <span class="arr">→</span></a>
+      </div>
+      <div class="grid-designs" id="homeDesigns"></div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><div class="eyebrow">How it works</div><h2 class="display" style="color:#fff">From idea to installed</h2></div>
+        <p>A clear process, so you always know what's next — and what your space will look like before a single cut is made.</p>
+      </div>
+      <div class="process reveal">
+        <div class="step"><div class="n">01</div><h4>Consult</h4><p>We visit, measure, and listen: how you live, what you store, the style you love.</p></div>
+        <div class="step"><div class="n">02</div><h4>Design</h4><p>You get a layout and material proposal — wood tones, finishes and hardware — to approve.</p></div>
+        <div class="step"><div class="n">03</div><h4>Craft</h4><p>Everything is cut, assembled and finished in our workshop with care and precision.</p></div>
+        <div class="step"><div class="n">04</div><h4>Install</h4><p>We deliver and install, adjust every door and drawer, and leave the space spotless.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cream">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><div class="eyebrow">From the workshop</div><h2 class="display">Pieces with a twist</h2></div>
+        <a href="#shop" class="btn btn-dark">Shop all <span class="arr">→</span></a>
+      </div>
+      <div class="grid-products" id="homeProducts"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2 class="display">Have a space in mind?<br><span class="accent">let's build it together.</span></h2>
+        <a href="#contact" class="btn btn-gold">Request a quote <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= STORY ================= -->
+<div class="page" id="p-story">
+  <section class="phero">
+    <div class="wrap">
+      <div class="eyebrow">Our Story</div>
+      <h1 class="display">Raised in sawdust.<br><span class="accent">shaped by family.</span></h1>
+      <p>MelaWood didn't start as a business. It started in a father's carpentry workshop, with a curious kid who wouldn't leave the workbench.</p>
+    </div>
+    <div class="goldline"></div>
+  </section>
+
+  <section>
+    <div class="wrap story-intro">
+      <p class="big reveal">"I grew up surrounded by the smell of fresh-cut wood and the sound of my father's tools. Before I knew what a career was, I knew how to sand, measure twice, and respect the grain."</p>
+      <div class="txt reveal">
+        <p>Our founder learned the craft the traditional way: by watching, helping, and slowly being trusted with more. Years in his father's carpentry taught him patience, precision, and that a piece is only finished when it's right.</p>
+        <p>MelaWood is what came next — a new generation bringing modern design into a family trade. Clean lines, honest materials, and the occasional unexpected detail that makes you look twice.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <div class="sec-head reveal" style="justify-content:center;text-align:center"><div><div class="eyebrow" style="justify-content:center">The journey</div><h2 class="display" style="color:#fff">How MelaWood came to be</h2></div></div>
+      <div class="timeline">
+        <div class="tl reveal"><div class="card"><div class="phase">The beginning</div><h4>A workshop childhood</h4><p>Afternoons spent in the family carpentry, handing tools, sweeping shavings and asking a thousand questions.</p></div><div class="dot"></div></div>
+        <div class="tl reveal"><div class="dot"></div><div class="card"><div class="phase">Learning the craft</div><h4>Hands on the wood</h4><p>From simple cuts to full cabinets — learning joinery, finishing and installation side by side with his father.</p></div></div>
+        <div class="tl reveal"><div class="card"><div class="phase">A vision of his own</div><h4>MelaWood is born</h4><p>Combining traditional craftsmanship with modern design: wood meets metal, warmth meets clean geometry.</p></div><div class="dot"></div></div>
+        <div class="tl reveal"><div class="dot"></div><div class="card"><div class="phase">Today</div><h4>Rooms & objects</h4><p>Full home interiors for clients, plus a growing line of handmade products — and a Christmas collection each season.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal"><div><div class="eyebrow">Our materials</div><h2 class="display">Wood & metal, in balance</h2></div><p>Just like our logo: the warmth of natural oak, the strength of brushed steel, framed by a line of gold.</p></div>
+      <div class="material reveal">
+        <div class="m-wood"><h4>Wood</h4><p>Warm, natural and alive. Chosen for grain, durability and the way it ages beautifully over time.</p></div>
+        <div class="m-steel"><h4>Metal</h4><p>Clean, modern accents in handles, frames and inlays that give every piece a contemporary edge.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cream">
+    <div class="wrap">
+      <div class="values">
+        <div class="value reveal"><span class="eyebrow">01</span><h4>Precision</h4><p>Measured twice, cut once. Every joint, gap and edge is checked by hand before anything leaves the workshop.</p></div>
+        <div class="value reveal"><span class="eyebrow">02</span><h4>Honesty</h4><p>Clear quotes, real materials and timelines we stick to. No shortcuts hidden behind a nice finish.</p></div>
+        <div class="value reveal"><span class="eyebrow">03</span><h4>A Twist</h4><p>We love an unexpected detail — a hidden compartment, a metal inlay, a shape that makes an everyday object special.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap quote reveal">
+      <q>My father taught me how to build. MelaWood is where I learned what I want to build.</q>
+      <div class="by">— Founder, MelaWood</div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= DESIGNS ================= -->
+<div class="page" id="p-designs">
+  <section class="phero">
+    <div class="wrap">
+      <div class="eyebrow">Portfolio</div>
+      <h1 class="display">Home designs<br><span class="accent">made to measure.</span></h1>
+      <p>Kitchens, bedrooms, living rooms and storage — each designed for the people who live there. Tap any project to see the details.</p>
+    </div>
+    <div class="goldline"></div>
+  </section>
+  <section class="cream">
+    <div class="wrap">
+      <div class="chips" id="designChips"></div>
+      <div class="grid-designs" id="allDesigns"></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2 class="display">Like what you see?<br><span class="accent">yours could be next.</span></h2>
+        <a href="#contact" class="btn btn-gold">Start your project <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SHOP ================= -->
+<div class="page" id="p-shop">
+  <section class="phero">
+    <div class="wrap">
+      <div class="eyebrow">The Shop</div>
+      <h1 class="display">Everyday objects,<br><span class="accent">with a twist.</span></h1>
+      <p>Small-batch pieces made in the same workshop as our kitchens and wardrobes. Add to your bag and send your order straight to us on WhatsApp.</p>
+    </div>
+    <div class="goldline"></div>
+  </section>
+  <section class="cream">
+    <div class="wrap">
+      <div class="chips" id="shopChips"></div>
+      <div class="grid-products" id="allProducts"></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap gift-box reveal">
+      <div><div class="eyebrow">Custom orders</div><h2 class="display" style="font-size:clamp(1.8rem,3vw,2.4rem);margin:.8rem 0 1rem">Want it engraved, resized or in another wood?</h2><p style="color:var(--muted)">Almost every product can be personalized with a name, a date or a logo — perfect for gifts and corporate orders.</p></div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:flex-end"><a href="#contact" class="btn btn-dark">Ask for a custom piece <span class="arr">→</span></a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CHRISTMAS ================= -->
+<div class="page" id="p-christmas">
+  <section class="xmas-hero">
+    <div class="snow" id="snow"></div>
+    <div class="wrap xmas-grid">
+      <div>
+        <div class="eyebrow">Limited Season Collection</div>
+        <h1 class="display">A wooden<br>Christmas<span class="accent" style="display:block;font-size:.8em">handmade, for your home.</span></h1>
+        <p>Trees that won't drop needles, ornaments you'll keep for decades, and festive pieces made in small numbers for this season only.</p>
+        <div class="countdown" id="countdown"></div>
+        <a href="#xmasGrid" class="btn btn-gold" id="xmasJump">Shop the collection <span class="arr">↓</span></a>
+      </div>
+      <div class="xmas-art" id="xmasHeroArt"></div>
+    </div>
+  </section>
+  <div class="xmas-strip"><span id="marq"></span></div>
+  <section class="cream" id="xmasGrid">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><div class="eyebrow">The 2026 collection</div><h2 class="display">Festive pieces</h2></div><p>Each piece is made in limited quantity. Order early to guarantee delivery before Christmas.</p></div>
+      <div class="grid-products" id="xmasProducts"></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap gift-box reveal">
+      <div><div class="eyebrow">Gifting</div><h2 class="display" style="font-size:clamp(1.8rem,3vw,2.4rem);margin:.8rem 0 1rem">Personalized ornaments & gift sets</h2><p style="color:var(--muted)">Add a family name, a baby's first Christmas, or your company logo. Bulk orders for corporate gifts are welcome — just ask early.</p></div>
+      <div style="display:flex;justify-content:flex-end"><a href="#contact" class="btn btn-dark">Order a custom gift <span class="arr">→</span></a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="page" id="p-contact">
+  <section class="phero">
+    <div class="wrap">
+      <div class="eyebrow">Contact</div>
+      <h1 class="display">Let's talk<br><span class="accent">about your space.</span></h1>
+      <p>Tell us what you're dreaming of — a full kitchen, a wardrobe, or a single custom piece. We'll get back to you quickly.</p>
+    </div>
+    <div class="goldline"></div>
+  </section>
+  <section class="cream">
+    <div class="wrap contact-grid">
+      <div class="cinfo reveal">
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12a9 9 0 1 1-4.2-7.6L21 3l-1.2 4.1A9 9 0 0 1 21 12z"/></svg><div><small>WhatsApp</small><b id="cWa"></b></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg><div><small>Instagram</small><b><a id="cIg" target="_blank" rel="noopener"></a></b></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><small>Workshop</small><b id="cLoc"></b></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><small>Hours</small><b id="cHrs"></b></div></div>
+      </div>
+      <form class="card reveal" id="cForm">
+        <div class="f2">
+          <label>Your name<input name="name" required placeholder="Full name"></label>
+          <label>Phone<input name="phone" placeholder="+961 ..."></label>
+        </div>
+        <label>I'm interested in
+          <select name="topic"><option>Kitchen</option><option>Bedroom / Wardrobe</option><option>Living room / TV wall</option><option>Shop product</option><option>Christmas collection</option><option>Custom piece / Gift</option><option>Something else</option></select>
+        </label>
+        <label>Tell us about it<textarea name="msg" required placeholder="Space size, style you like, timeline…"></textarea></label>
+        <button class="btn btn-gold" type="submit" style="justify-self:start">Send via WhatsApp <span class="arr">→</span></button>
+        <p class="note" id="fNote" style="text-align:left"></p>
+      </form>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a href="#home" class="brand" style="margin-bottom:1.2rem"><img src="mark.png" alt=""><span>MELAWOOD</span></a>
+        <p style="max-width:300px;font-size:.92rem;margin-top:1rem">Custom woodwork and handmade pieces from a family carpentry workshop. Wood, metal, and a touch of gold.</p>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="#story">Our Story</a></li><li><a href="#designs">Home Designs</a></li><li><a href="#shop">Shop</a></li><li><a href="#christmas">Christmas</a></li></ul></div>
+      <div><h5>Services</h5><ul><li><a href="#designs">Kitchens</a></li><li><a href="#designs">Bedrooms</a></li><li><a href="#designs">Living rooms</a></li><li><a href="#contact">Custom pieces</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li id="fWa"></li><li><a id="fIg" target="_blank" rel="noopener"></a></li><li id="fLoc"></li></ul></div>
+    </div>
+    <div class="fbot"><span>© <span id="yr"></span> MelaWood. All rights reserved.</span><span>Handcrafted with care.</span></div>
+  </div>
+</footer>
+
+<!-- cart drawer -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping bag">
+  <div class="drawer-h"><h3>Your Bag</h3><button class="xbtn" style="position:static" id="closeCart" aria-label="Close">✕</button></div>
+  <div class="drawer-items" id="cartItems"></div>
+  <div class="drawer-f" id="cartFoot">
+    <div class="total"><span>Total</span><span id="cartTotal">$0</span></div>
+    <a class="btn btn-gold" id="checkout" target="_blank" rel="noopener" style="justify-content:center">Order on WhatsApp <span class="arr">→</span></a>
+    <p class="note">Your order opens as a WhatsApp message to MelaWood. We'll confirm availability, delivery and payment with you directly.</p>
+  </div>
+</aside>
+
+<!-- detail modal -->
+<div class="modal" id="modal">
+  <div class="modal-box" id="modalBox"></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================
+   EDIT HERE — business details
+   ========================================================= */
+const CONFIG = {
+  whatsapp: "96100000000",          // international format, digits only (e.g. 9613123456)
+  whatsappDisplay: "+961 00 000 000",
+  instagram: "melawood",            // handle without @
+  location: "Lebanon",
+  hours: "Mon – Sat · 8:00 – 18:00",
+  currency: "$"
+};
+
+/* =========================================================
+   ILLUSTRATIONS (placeholders until real photos are added)
+   To use a real photo: set  img: "photo.jpg"  on any item below.
+   ========================================================= */
+const S='stroke="#1f2124" stroke-width="1.4" stroke-linejoin="round"';
+const shadow=(cx,cy,rx)=>`<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${rx*.12}" fill="#1f2124" opacity=".12"/>`;
+const ART = {
+ /* ----- rooms ----- */
+ kitchen:(t)=>{const w=t==='dark'?'woodD':'wood';return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#efe8dd"/><rect y="250" width="400" height="50" fill="#d8cdbd"/><path d="M0 250h400" stroke="#c9bca8"/>
+  <rect x="24" y="40" width="200" height="74" fill="url(#${w})" ${S}/>${[74,124,174].map(x=>`<path d="M${x} 40v74" ${S}/>`).join('')}${[64,114,164,214].map(x=>`<rect x="${x-14}" y="100" width="10" height="2" fill="url(#gGold)"/>`).join('')}
+  <rect x="24" y="114" width="200" height="6" fill="#f7e2b8" opacity=".9"/><rect x="24" y="120" width="300" height="56" fill="url(#glow)" opacity=".35"/>
+  <polygon points="240,40 300,40 312,98 228,98" fill="url(#steel)" ${S}/><rect x="226" y="98" width="88" height="6" fill="#1f2124"/>
+  <rect x="330" y="30" width="50" height="220" fill="url(#${w})" ${S}/><path d="M330 120h50" ${S}/><rect x="334" y="60" width="2" height="40" fill="url(#gGold)"/><rect x="334" y="140" width="2" height="60" fill="url(#gGold)"/>
+  <rect x="20" y="176" width="310" height="8" fill="#2b2d31"/>
+  <rect x="24" y="184" width="302" height="66" fill="url(#steel)" ${S}/>${[84,144,204,264].map(x=>`<path d="M${x} 184v66" ${S}/>`).join('')}${[30,90,150,210,270].map(x=>`<rect x="${x}" y="190" width="44" height="2" fill="url(#gGold)"/>`).join('')}
+  <rect x="240" y="170" width="60" height="6" fill="#1f2124"/><circle cx="256" cy="173" r="2" fill="#555"/><circle cx="284" cy="173" r="2" fill="#555"/>
+  <path d="M90 150q6-14 0-26M96 176v-14h22v14" stroke="#3b5c48" fill="none" stroke-width="1.5"/><ellipse cx="100" cy="146" rx="10" ry="16" fill="#5e7d62" opacity=".8"/>
+  <rect x="150" y="160" width="26" height="16" rx="3" fill="#f5efe6" ${S}/></svg>`},
+ bedroom:(t)=>{const w=t==='dark'?'woodD':'woodV';return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#e9e2d6"/><rect y="250" width="400" height="50" fill="#cfc2ae"/>
+  <rect x="90" y="40" width="220" height="170" fill="url(#${w})" ${S}/>${[112,134,156,178,200,222,244,266,288].map(x=>`<path d="M${x} 40v170" stroke="#1f2124" stroke-opacity=".35"/>`).join('')}
+  <rect x="90" y="40" width="220" height="4" fill="#f7e2b8" opacity=".9"/>
+  <rect x="110" y="150" width="180" height="60" fill="#2b2d31" ${S}/>
+  <rect x="96" y="196" width="208" height="38" rx="4" fill="#f4eee4" ${S}/><path d="M96 214h208" stroke="#d9cfbf"/>
+  <rect x="120" y="178" width="70" height="24" rx="10" fill="#fff" ${S}/><rect x="210" y="178" width="70" height="24" rx="10" fill="#fff" ${S}/>
+  <rect x="96" y="226" width="208" height="20" fill="url(#woodD)" ${S}/><rect x="150" y="204" width="154" height="22" fill="#c9a063" opacity=".55"/>
+  <rect x="40" y="200" width="44" height="46" fill="url(#wood)" ${S}/><rect x="316" y="200" width="44" height="46" fill="url(#wood)" ${S}/><path d="M40 222h44M316 222h44" ${S}/>
+  <circle cx="62" cy="120" r="34" fill="url(#glow)"/><circle cx="338" cy="120" r="34" fill="url(#glow)"/><path d="M62 90v20M338 90v20" stroke="#1f2124"/><polygon points="52,110 72,110 68,124 56,124" fill="url(#gGold)"/><polygon points="328,110 348,110 344,124 332,124" fill="url(#gGold)"/></svg>`},
+ living:(t)=>{const w=t==='dark'?'woodD':'woodV';return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#ece5da"/><rect y="250" width="400" height="50" fill="#d4c8b6"/>
+  <rect x="40" y="30" width="320" height="196" fill="#2b2d31" ${S}/>
+  <rect x="40" y="30" width="96" height="196" fill="url(#${w})" ${S}/>${[52,64,76,88,100,112,124].map(x=>`<path d="M${x} 30v196" stroke="#1f2124" stroke-opacity=".4"/>`).join('')}
+  <rect x="160" y="70" width="176" height="100" rx="3" fill="#121315" stroke="#3a3c40" stroke-width="3"/><path d="M168 78l60 40" stroke="#fff" stroke-opacity=".05" stroke-width="20"/>
+  <rect x="150" y="200" width="196" height="26" fill="url(#steel)" ${S}/><path d="M215 200v26M281 200v26" ${S}/><rect x="150" y="226" width="196" height="3" fill="#f7e2b8"/><rect x="150" y="229" width="196" height="16" fill="url(#glow)" opacity=".5"/>
+  <rect x="356" y="30" width="4" height="196" fill="url(#gGold)"/>
+  <path d="M10 250l12-40h26l12 40z" fill="url(#woodD)" ${S}/><ellipse cx="35" cy="190" rx="22" ry="30" fill="#5e7d62" opacity=".85"/><ellipse cx="22" cy="170" rx="12" ry="20" fill="#4c6a51" opacity=".8"/></svg>`},
+ closet:(t)=>{const w=t==='dark'?'woodD':'wood';return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#ebe4d9"/><rect y="250" width="400" height="50" fill="#d2c6b3"/>
+  <rect x="40" y="26" width="320" height="224" fill="url(#${w})" ${S}/>
+  <rect x="52" y="38" width="90" height="200" fill="#2b2d31" ${S}/><rect x="155" y="38" width="90" height="200" fill="#2b2d31" ${S}/><rect x="258" y="38" width="90" height="200" fill="url(#steel)" ${S}/>
+  <path d="M58 56h78M161 56h78" stroke="url(#gGold)" stroke-width="3"/>
+  ${[64,76,88,100,112,124].map((x,i)=>`<rect x="${x}" y="58" width="9" height="${70+(i%3)*12}" rx="2" fill="${['#c9a063','#f5efe6','#8f9297','#c08a52','#e9e5df','#5e7d62'][i]}" ${S}/>`).join('')}
+  ${[167,180,193,206,219].map((x,i)=>`<rect x="${x}" y="58" width="10" height="${110-(i%2)*30}" rx="2" fill="${['#f5efe6','#2b2d31','#c9a063','#8f9297','#f5efe6'][i]}" stroke="#555" stroke-width="1"/>`).join('')}
+  <path d="M52 170h90M155 190h90" ${S}/>${[180,206].map(y=>`<rect x="56" y="${y}" width="82" height="22" fill="url(#woodL)" ${S}/><rect x="88" y="${y+10}" width="18" height="2" fill="url(#gGold)"/>`).join('')}
+  ${[60,100,140,180].map(y=>`<path d="M258 ${y}h90" ${S}/>`).join('')}${[[266,44],[300,44],[270,84],[316,124],[268,164]].map(([x,y])=>`<rect x="${x}" y="${y}" width="22" height="14" fill="url(#woodL)" ${S}/>`).join('')}
+  <rect x="40" y="26" width="320" height="4" fill="#f7e2b8"/></svg>`},
+ office:(t)=>{const w=t==='dark'?'woodD':'wood';return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#eae3d8"/><rect y="250" width="400" height="50" fill="#d0c4b0"/>
+  ${[50,100,150].map(y=>`<rect x="40" y="${y}" width="320" height="8" fill="url(#${w})" ${S}/>`).join('')}
+  ${[[60,22,'#2b2d31'],[86,30,'#c9a063'],[100,26,'#8f9297'],[120,34,'#f5efe6'],[260,28,'#2b2d31'],[280,22,'#c08a52']].map(([x,h,c])=>`<rect x="${x}" y="${50-h}" width="12" height="${h}" fill="${c}" ${S}/>`).join('')}
+  <polygon points="200,100 214,100 210,80 204,80" fill="#5e7d62"/><rect x="300" y="122" width="30" height="28" fill="url(#woodL)" ${S}/>
+  <rect x="40" y="186" width="320" height="12" fill="url(#${w})" ${S}/><rect x="60" y="198" width="8" height="52" fill="url(#steel)" ${S}/><rect x="332" y="198" width="8" height="52" fill="url(#steel)" ${S}/>
+  <rect x="250" y="198" width="76" height="40" fill="url(#woodL)" ${S}/><path d="M250 218h76" ${S}/><rect x="280" y="206" width="16" height="2" fill="url(#gGold)"/><rect x="280" y="226" width="16" height="2" fill="url(#gGold)"/>
+  <rect x="140" y="128" width="96" height="56" rx="3" fill="#1f2124"/><rect x="184" y="184" width="8" height="4" fill="#555"/><rect x="146" y="134" width="84" height="44" fill="#2f3237"/>
+  <path d="M110 186l6-26h18l6 26" fill="url(#gGold)"/></svg>`},
+
+ /* ----- products ----- */
+ tissue:()=>`<svg viewBox="0 0 240 200">${shadow(130,176,90)}
+  <polygon points="50,90 84,62 204,62 170,90" fill="url(#woodL)" ${S}/><polygon points="170,90 204,62 204,138 170,166" fill="url(#woodD)" ${S}/><rect x="50" y="90" width="120" height="76" fill="url(#wood)" ${S}/>
+  <polyline points="72,150 72,108 110,132 148,108 148,150" fill="none" stroke="url(#gGold)" stroke-width="5" stroke-linejoin="miter"/>
+  <ellipse cx="127" cy="76" rx="34" ry="7" fill="#2b2d31"/><path d="M104 76 C108 40 120 30 128 18 C134 34 148 44 152 76 Z" fill="#fff" ${S}/><path d="M128 18 C126 40 120 58 116 74" stroke="#ddd" fill="none"/></svg>`,
+ tray:()=>`<svg viewBox="0 0 240 200">${shadow(120,160,100)}
+  <polygon points="20,112 110,70 222,100 132,148" fill="url(#woodD)" ${S}/><polygon points="20,112 132,148 132,158 20,122" fill="url(#woodD)" ${S}/><polygon points="132,148 222,100 222,110 132,158" fill="url(#wood)" ${S}/>
+  <polygon points="32,112 110,76 208,102 132,140" fill="url(#wood)" ${S}/>
+  <polygon points="78,92 92,86 168,122 154,128" fill="url(#steel)" stroke="#1f2124"/><polygon points="102,80 114,76 190,110 178,116" fill="url(#gGold)" stroke="#1f2124"/>
+  <path d="M14 108q-8 6 4 14M228 98q8 6-2 14" stroke="url(#gGold)" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="70" cy="110" rx="14" ry="6" fill="#fff" ${S}/><rect x="62" y="94" width="16" height="16" rx="2" fill="#fff" ${S}/><ellipse cx="70" cy="94" rx="8" ry="3" fill="#b8865a" ${S}/></svg>`,
+ phone:()=>`<svg viewBox="0 0 240 200">${shadow(120,176,80)}
+  <polygon points="50,150 150,150 190,124 90,124" fill="url(#woodL)" ${S}/><polygon points="50,150 150,150 150,168 50,168" fill="url(#wood)" ${S}/><polygon points="150,150 190,124 190,142 150,168" fill="url(#woodD)" ${S}/>
+  <polygon points="96,136 150,136 158,130 104,130" fill="#2b2d31"/>
+  <g transform="rotate(-14 130 90)"><rect x="104" y="20" width="56" height="112" rx="9" fill="#1f2124"/><rect x="108" y="28" width="48" height="96" rx="5" fill="url(#gSteel)"/><rect x="108" y="28" width="48" height="96" rx="5" fill="#c9a063" opacity=".35"/><circle cx="132" cy="68" r="12" fill="#fff" opacity=".7"/></g>
+  <rect x="60" y="156" width="30" height="2" fill="url(#gGold)"/></svg>`,
+ coasters:()=>`<svg viewBox="0 0 240 200">${shadow(120,168,90)}
+  ${[[0,'woodD'],[1,'steel'],[2,'wood'],[3,'woodL']].map(([i,f])=>{const y=150-i*16;return `<polygon points="60,${y} 88,${y-16} 152,${y-16} 180,${y} 152,${y+16} 88,${y+16}" fill="url(#${f})" ${S}/><polygon points="60,${y} 88,${y+16} 152,${y+16} 180,${y} 180,${y+6} 152,${y+22} 88,${y+22} 60,${y+6}" fill="url(#woodD)" ${S}/>`}).join('')}
+  <polygon points="98,86 120,76 142,86 120,96" fill="none" stroke="url(#gGold)" stroke-width="2.5"/></svg>`,
+ keys:()=>`<svg viewBox="0 0 240 200">
+  <polygon points="40,40 200,40 200,120 40,120" fill="url(#wood)" ${S}/><rect x="40" y="108" width="160" height="12" fill="url(#steel)" ${S}/>
+  <text x="120" y="84" font-family="Saira" font-size="20" letter-spacing="6" text-anchor="middle" fill="#1f2124" opacity=".75">HOME</text>
+  ${[64,104,144,184].map(x=>`<circle cx="${x-4}" cy="114" r="3" fill="url(#gGold)"/><path d="M${x-4} 116v14q0 6 6 6" stroke="url(#gGold)" stroke-width="3" fill="none" stroke-linecap="round"/>`).join('')}
+  <circle cx="106" cy="148" r="9" fill="none" stroke="#8f9297" stroke-width="3"/><rect x="104" y="156" width="4" height="26" fill="#8f9297"/><rect x="108" y="170" width="6" height="3" fill="#8f9297"/><rect x="108" y="176" width="4" height="3" fill="#8f9297"/>
+  <path d="M186 136l-6 12h14z" fill="url(#gGold)"/><circle cx="187" cy="160" r="9" fill="url(#gGold)"/></svg>`,
+ desk:()=>`<svg viewBox="0 0 240 200">${shadow(120,174,96)}
+  <polygon points="30,130 150,130 200,104 80,104" fill="url(#woodL)" ${S}/><polygon points="30,130 150,130 150,166 30,166" fill="url(#wood)" ${S}/><polygon points="150,130 200,104 200,140 150,166" fill="url(#woodD)" ${S}/>
+  <path d="M70 130v36M110 130v36" ${S}/><polygon points="74,122 114,122 132,112 92,112" fill="#2b2d31"/>
+  ${[[42,60,'#c9a063'],[50,52,'#2b2d31'],[58,64,'#8f9297']].map(([x,h,c])=>`<rect x="${x}" y="${128-h}" width="5" height="${h}" fill="${c}" ${S} transform="rotate(${(x-50)/2} ${x} 128)"/>`).join('')}
+  <rect x="80" y="86" width="38" height="30" fill="url(#steel)" ${S}/><rect x="96" y="90" width="20" height="3" fill="url(#gGold)"/>
+  <rect x="160" y="70" width="30" height="40" fill="url(#gGold)" opacity=".85" ${S}/></svg>`,
+
+ /* ----- christmas ----- */
+ tree:()=>`<svg viewBox="0 0 240 220">${shadow(120,202,70)}
+  <rect x="108" y="170" width="24" height="30" fill="url(#woodD)" ${S}/><rect x="80" y="196" width="80" height="8" fill="url(#steel)" ${S}/>
+  <polygon points="120,92 182,172 58,172" fill="url(#woodD)" ${S}/><polygon points="120,62 168,130 72,130" fill="url(#wood)" ${S}/><polygon points="120,32 154,90 86,90" fill="url(#woodL)" ${S}/>
+  <path d="M86 112l44 8M76 152l60 10M98 72l36 6" stroke="url(#gGold)" stroke-width="2"/>
+  ${[[96,116],[150,124],[86,158],[160,160],[124,148],[110,82]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="4" fill="url(#gGold)" ${S}/>`).join('')}
+  <circle cx="120" cy="26" r="22" fill="url(#glow)"/><polygon points="120,10 125,22 138,22 128,30 132,42 120,35 108,42 112,30 102,22 115,22" fill="url(#gGold)" ${S}/></svg>`,
+ ornaments:()=>`<svg viewBox="0 0 240 200"><path d="M10 20h220" stroke="#1f2124" stroke-width="2"/>
+  ${[[60,90,'wood'],[120,130,'steel'],[180,80,'woodL']].map(([x,y,f])=>`<path d="M${x} 20v${y-40}" stroke="#a47c43"/><rect x="${x-5}" y="${y-22}" width="10" height="7" fill="url(#gGold)" ${S}/><polygon points="${x-14},${y-14} ${x+14},${y-14} ${x+26},${y+8} ${x+14},${y+30} ${x-14},${y+30} ${x-26},${y+8}" fill="url(#${f})" ${S}/><polygon points="${x-8},${y-2} ${x+8},${y-2} ${x+14},${y+8} ${x+8},${y+18} ${x-8},${y+18} ${x-14},${y+8}" fill="none" stroke="url(#gGold)" stroke-width="2"/>`).join('')}</svg>`,
+ advent:()=>`<svg viewBox="0 0 240 220">${shadow(120,204,90)}
+  <polygon points="40,90 120,30 200,90" fill="url(#woodD)" ${S}/><rect x="48" y="88" width="144" height="112" fill="url(#wood)" ${S}/>
+  ${Array.from({length:24},(_,i)=>{const c=i%6,r=Math.floor(i/6),x=56+c*22.5,y=96+r*25;return `<rect x="${x}" y="${y}" width="19" height="21" fill="${(i*7)%5===0?'url(#steel)':'url(#woodL)'}" ${S}/><text x="${x+9.5}" y="${y+14}" font-family="Saira" font-size="8.5" text-anchor="middle" fill="#1f2124">${i+1}</text>`}).join('')}
+  <polygon points="120,10 124,20 135,20 126,27 130,38 120,31 110,38 114,27 105,20 116,20" fill="url(#gGold)" ${S}/></svg>`,
+ nativity:()=>`<svg viewBox="0 0 240 200">${shadow(120,182,96)}
+  <rect x="30" y="170" width="180" height="12" fill="url(#woodD)" ${S}/>
+  <path d="M44 170V92L120 44l76 48v78" fill="none" stroke="#1f2124" stroke-width="12"/><path d="M44 170V92L120 44l76 48v78" fill="none" stroke="url(#wood)" stroke-width="9"/>
+  <circle cx="120" cy="22" r="20" fill="url(#glow)"/><polygon points="120,8 124,18 134,18 126,24 129,34 120,28 111,34 114,24 106,18 116,18" fill="url(#gGold)" ${S}/>
+  <path d="M80 170v-44q0-14 12-14t12 14v44z" fill="url(#woodL)" ${S}/><circle cx="92" cy="104" r="9" fill="url(#woodL)" ${S}/>
+  <path d="M136 170v-52q0-14 12-14t12 14v52z" fill="url(#woodD)" ${S}/><circle cx="148" cy="96" r="9" fill="url(#woodD)" ${S}/>
+  <path d="M106 170l4-16h20l4 16z" fill="url(#steel)" ${S}/><ellipse cx="120" cy="152" rx="10" ry="5" fill="#f5efe6" ${S}/></svg>`,
+ candles:()=>`<svg viewBox="0 0 240 200">${shadow(120,176,100)}
+  <path d="M24 130q96-24 192 0v34q-96 18-192 0z" fill="url(#wood)" ${S}/><ellipse cx="24" cy="147" rx="8" ry="17" fill="url(#woodL)" ${S}/><ellipse cx="24" cy="147" rx="4" ry="9" fill="none" stroke="#9c6534"/>
+  ${[70,120,170].map((x,i)=>{const h=[40,56,40][i];return `<rect x="${x-10}" y="${122-h}" width="20" height="${h}" fill="#f8f3ea" ${S}/><circle cx="${x}" cy="${110-h}" r="14" fill="url(#glow)"/><path d="M${x} ${100-h}q7 9 0 16q-7-7 0-16z" fill="#f0b850"/>`}).join('')}
+  <path d="M40 120q20-14 30-6M200 120q-20-14-30-6" stroke="#4c6a51" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="48" cy="118" r="3.5" fill="#8e2a2a"/><circle cx="192" cy="118" r="3.5" fill="#8e2a2a"/></svg>`,
+ nameorn:()=>`<svg viewBox="0 0 240 200"><path d="M120 0v40" stroke="#8e2a2a" stroke-width="3"/><path d="M110 40q10-14 20 0" fill="none" stroke="#8e2a2a" stroke-width="3"/>
+  <circle cx="120" cy="112" r="70" fill="url(#woodD)" ${S}/><circle cx="120" cy="112" r="62" fill="url(#woodL)"/>${[50,38,26,14].map(r=>`<circle cx="120" cy="112" r="${r}" fill="none" stroke="#b07a42" stroke-opacity=".35"/>`).join('')}
+  <text x="120" y="108" font-family="Fraunces" font-style="italic" font-size="30" text-anchor="middle" fill="#1f2124">Maria</text><text x="120" y="136" font-family="Saira" font-size="9" letter-spacing="2.5" text-anchor="middle" fill="#7a5a2a">CHRISTMAS 2026</text>
+  <polygon points="120,150 123,157 131,157 125,162 127,170 120,165 113,170 115,162 109,157 117,157" fill="url(#gGold)"/></svg>`,
+ star:()=>`<svg viewBox="0 0 240 200"><circle cx="120" cy="100" r="80" fill="url(#glow)"/><polygon points="120,14 142,74 206,76 156,114 174,176 120,140 66,176 84,114 34,76 98,74" fill="url(#wood)" ${S}/><polygon points="120,40 134,80 176,82 144,106 154,146 120,122 86,146 96,106 64,82 106,80" fill="none" stroke="url(#gGold)" stroke-width="3"/></svg>`
+};
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+const DESIGNS = [
+ {id:'d1', title:'Oak & Steel Kitchen', cat:'Kitchens', art:'kitchen', tone:'light', wide:true,
+  desc:'A warm oak upper run paired with brushed-steel base cabinets and a slim gold handle line. Integrated LED under the uppers lights the work surface.',
+  specs:{Materials:'Oak veneer, brushed steel',Finish:'Matte lacquer',Highlights:'Hidden LED, soft-close'}},
+ {id:'d2', title:'Slatted Master Bedroom', cat:'Bedrooms', art:'bedroom', tone:'light',
+  desc:'A full-height slatted wood wall frames a dark upholstered headboard, with floating nightstands and warm wall lights.',
+  specs:{Materials:'Solid oak slats',Finish:'Natural oil',Highlights:'Floating nightstands'}},
+ {id:'d3', title:'Floating TV Wall', cat:'Living Rooms', art:'living', tone:'light',
+  desc:'A charcoal media wall with a vertical wood-slat feature, floating steel console and concealed cable management.',
+  specs:{Materials:'MDF, oak slats, steel',Finish:'Matte charcoal',Highlights:'Hidden wiring, LED wash'}},
+ {id:'d4', title:'Walk-in Wardrobe', cat:'Storage', art:'closet', tone:'light',
+  desc:'Open hanging, glass-front drawers and a dedicated shoe wall — organized so every item has its place.',
+  specs:{Materials:'Oak, steel frame',Finish:'Satin',Highlights:'Gold rails, inner lighting'}},
+ {id:'d5', title:'Dark Walnut Kitchen', cat:'Kitchens', art:'kitchen', tone:'dark',
+  desc:'A deeper, moodier take: dark walnut tones with steel bases and a full-height pantry column.',
+  specs:{Materials:'Walnut veneer, steel',Finish:'Matte',Highlights:'Pantry column'}},
+ {id:'d6', title:'Home Office Wall', cat:'Living Rooms', art:'office', tone:'light',
+  desc:'Floating shelves over a wall-to-wall desk with a built-in drawer unit — a calm place to focus.',
+  specs:{Materials:'Oak, steel legs',Finish:'Natural oil',Highlights:'Cable tray, drawers'}},
+ {id:'d7', title:'Walnut Guest Bedroom', cat:'Bedrooms', art:'bedroom', tone:'dark',
+  desc:'Rich walnut paneling and a deep charcoal headboard give this guest room a boutique-hotel feel.',
+  specs:{Materials:'Walnut veneer',Finish:'Satin',Highlights:'Integrated headboard'}},
+ {id:'d8', title:'Charcoal Living Unit', cat:'Living Rooms', art:'living', tone:'dark',
+  desc:'A complete living-room wall in dark tones with a walnut slat panel and soft LED glow beneath the console.',
+  specs:{Materials:'Walnut, steel',Finish:'Matte',Highlights:'LED wash'}},
+ {id:'d9', title:'Dark Wardrobe System', cat:'Storage', art:'closet', tone:'dark',
+  desc:'A floor-to-ceiling wardrobe in dark walnut with steel shelving and soft gold accents.',
+  specs:{Materials:'Walnut, steel',Finish:'Matte',Highlights:'Shoe wall'}}
+];
+
+const PRODUCTS = [
+ {id:'p1', name:'Hex Tissue Box', cat:'Home', price:35, art:'tissue', badge:'Bestseller',
+  desc:'Solid wood tissue box with our signature "M" chevron in gold inlay. The base slides out magnetically for refills.',
+  specs:{Material:'Oak, brass inlay',Size:'26 × 14 × 10 cm',Twist:'Magnetic slide-out base'}},
+ {id:'p2', name:'Inlay Serving Tray', cat:'Home', price:55, art:'tray',
+  desc:'A wide serving tray with brushed-steel and gold inlay stripes and curved metal handles.',
+  specs:{Material:'Oak, steel, brass',Size:'45 × 30 cm',Twist:'Metal inlay stripes'}},
+ {id:'p3', name:'Angle Phone Stand', cat:'Desk', price:22, art:'phone',
+  desc:'A heavy wood stand that holds your phone at the perfect angle, with a hidden slot for the charging cable.',
+  specs:{Material:'Oak',Size:'12 × 9 cm',Twist:'Cable channel underneath'}},
+ {id:'p4', name:'Hexagon Coaster Set', cat:'Home', price:28, art:'coasters',
+  desc:'Four hexagon coasters in mixed wood and steel finishes — inspired by the MelaWood logo.',
+  specs:{Material:'Oak, walnut, steel',Set:'4 pieces + stand',Twist:'Mixed materials'}},
+ {id:'p5', name:'Entryway Key Holder', cat:'Home', price:32, art:'keys',
+  desc:'Wall-mounted key rack with gold hooks and a hidden ledge for letters. Can be engraved with your family name.',
+  specs:{Material:'Oak, steel, brass',Size:'40 × 20 cm',Twist:'Custom engraving'}},
+ {id:'p6', name:'Desk Organizer', cat:'Desk', price:45, art:'desk',
+  desc:'A modular organizer for pens, cards and notes, with a steel tray and a secret drawer at the back.',
+  specs:{Material:'Oak, steel',Size:'30 × 15 cm',Twist:'Secret back drawer'}},
+ {id:'x1', name:'Layered Wood Tree', cat:'Christmas', price:65, art:'tree', badge:'New',
+  desc:'A three-tier wooden Christmas tree with gold details and a glowing star. Lasts for many Christmases to come.',
+  specs:{Material:'Mixed oak tones',Height:'45 cm',Twist:'Removable star'}},
+ {id:'x2', name:'Hexagon Ornament Set', cat:'Christmas', price:24, art:'ornaments',
+  desc:'Three hexagonal ornaments in wood and steel with gold-framed centers. Hang them on the tree or in a window.',
+  specs:{Material:'Oak, steel, brass',Set:'3 pieces',Twist:'Logo-inspired shape'}},
+ {id:'x3', name:'Advent Calendar House', cat:'Christmas', price:85, art:'advent', badge:'Limited',
+  desc:'A wooden house with 24 little drawers to fill with treats — counting down to Christmas morning, year after year.',
+  specs:{Material:'Oak, walnut',Size:'40 × 50 cm',Twist:'Reusable every year'}},
+ {id:'x4', name:'Nativity Scene', cat:'Christmas', price:75, art:'nativity',
+  desc:'A minimalist wooden nativity with the stable, the Holy Family and the Star of Bethlehem.',
+  specs:{Material:'Oak, walnut, steel',Size:'35 × 25 cm',Twist:'Pieces stand freely'}},
+ {id:'x5', name:'Log Candle Holder', cat:'Christmas', price:38, art:'candles',
+  desc:'A natural log centerpiece holding three candles — perfect for the Christmas table.',
+  specs:{Material:'Natural wood log',Length:'40 cm',Twist:'Includes 3 candles'}},
+ {id:'x6', name:'Personalized Name Ornament', cat:'Christmas', price:15, art:'nameorn', badge:'Custom',
+  desc:'A wood-slice ornament engraved with any name and the year. A gift that becomes a family tradition.',
+  specs:{Material:'Wood slice',Diameter:'9 cm',Twist:'Your name engraved'}}
+];
+
+/* =========================================================
+   RENDERING
+   ========================================================= */
+let io;
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const money=n=>CONFIG.currency+n;
+const artOf=it=>it.img?`<img src="${it.img}" alt="${it.title||it.name}" loading="lazy">`:ART[it.art](it.tone);
+
+function designCard(d,wide){return `<article class="dcard reveal ${wide&&d.wide?'wide':''}" data-d="${d.id}"><div class="art">${artOf(d)}</div><div class="meta"><div><div class="cat">${d.cat}</div><h3>${d.title}</h3></div><span class="plus">+</span></div></article>`}
+function productCard(p){return `<article class="pcard reveal">${p.badge?`<span class="badge ${p.cat==='Christmas'?'red':''}">${p.badge}</span>`:''}<div class="art" data-pv="${p.id}">${artOf(p)}</div><div class="body"><div class="cat">${p.cat}</div><h3>${p.name}</h3><p>${p.desc}</p><div class="row"><span class="price">${money(p.price)}</span><button class="add" data-add="${p.id}">+ Add</button></div></div></article>`}
+
+function renderDesigns(filter='All'){
+  const list=filter==='All'?DESIGNS:DESIGNS.filter(d=>d.cat===filter);
+  $('#allDesigns').innerHTML=list.map(d=>designCard(d,false)).join('');
+  observe();
+}
+function renderShop(filter='All'){
+  const list=PRODUCTS.filter(p=>filter==='All'||p.cat===filter);
+  $('#allProducts').innerHTML=list.map(productCard).join('');
+  observe();
+}
+function chips(el,cats,onPick){
+  el.innerHTML=cats.map((c,i)=>`<button class="chip ${i?'':'on'}">${c}</button>`).join('');
+  el.onclick=e=>{const b=e.target.closest('.chip');if(!b)return;el.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));b.classList.add('on');onPick(b.textContent)};
+}
+
+$('#homeDesigns').innerHTML=[DESIGNS[0],DESIGNS[1],DESIGNS[2],DESIGNS[3],DESIGNS[5]].map((d,i)=>designCard(d,i===0)).join('');
+$('#homeProducts').innerHTML=['p1','p2','x1'].map(id=>productCard(PRODUCTS.find(p=>p.id===id))).join('');
+$('#xmasProducts').innerHTML=PRODUCTS.filter(p=>p.cat==='Christmas').map(productCard).join('');
+$('#xmasHeroArt').innerHTML=ART.tree();
+chips($('#designChips'),['All',...new Set(DESIGNS.map(d=>d.cat))],renderDesigns);
+chips($('#shopChips'),['All','Home','Desk','Christmas'],renderShop);
+renderDesigns();renderShop();
+
+/* contact details */
+$('#cWa').textContent=$('#fWa').textContent=CONFIG.whatsappDisplay;
+$('#cIg').textContent=$('#fIg').textContent='@'+CONFIG.instagram;
+$('#cIg').href=$('#fIg').href='https://instagram.com/'+CONFIG.instagram;
+$('#cLoc').textContent=$('#fLoc').textContent=CONFIG.location;
+$('#cHrs').textContent=CONFIG.hours;
+$('#yr').textContent=new Date().getFullYear();
+const wa=t=>`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(t)}`;
+
+/* =========================================================
+   ROUTER
+   ========================================================= */
+const PAGES=['home','story','designs','shop','christmas','contact'];
+function route(){
+  let h=location.hash.slice(1)||'home';
+  if(h==='xmasGrid'){return}
+  if(!PAGES.includes(h))h='home';
+  $$('.page').forEach(p=>p.classList.toggle('active',p.id==='p-'+h));
+  $$('.links a').forEach(a=>a.classList.toggle('on',a.dataset.p===h));
+  $('#links').classList.remove('open');$('#hdr').classList.remove('menu-open');document.body.classList.remove('lock');
+  window.scrollTo({top:0,behavior:'instant'});
+  document.title=(h==='home'?'MelaWood — Custom Woodwork & Handmade Pieces':'MelaWood — '+$(`.links a[data-p="${h}"]`).textContent.replace('✦ ',''));
+  if(h==='christmas')startSnow();
+  setTimeout(observe,30);onScroll();
+}
+window.addEventListener('hashchange',route);
+$('#xmasJump').onclick=e=>{e.preventDefault();$('#xmasGrid').scrollIntoView({behavior:'smooth'})};
+$$('.pillar').forEach(p=>p.onclick=()=>location.hash=p.dataset.go);
+$('#burger').onclick=()=>{const o=$('#links').classList.toggle('open');$('#hdr').classList.toggle('menu-open',o);document.body.classList.toggle('lock',o)};
+
+/* header + reveal */
+function onScroll(){$('#hdr').classList.toggle('solid',scrollY>40)}
+addEventListener('scroll',onScroll,{passive:true});
+function observe(){
+  if(!('IntersectionObserver' in window)){$$('.reveal').forEach(e=>e.classList.add('in'));return}
+  io=io||new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  $$('.page.active .reveal:not(.in)').forEach((e,i)=>{e.style.transitionDelay=(i%3)*90+'ms';io.observe(e)});
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+function openModal(html){$('#modalBox').innerHTML=html;$('#modalBox').scrollTop=0;document.body.classList.add('lock');$('#modal').classList.add('show');$('#scrim').classList.add('show')}
+function closeAll(){document.body.classList.remove('lock');$('#modal').classList.remove('show');$('#drawer').classList.remove('show');$('#scrim').classList.remove('show')}
+$('#scrim').onclick=closeAll;
+$('#modal').onclick=e=>{if(e.target.id==='modal'||e.target.closest('.xbtn'))closeAll()};
+addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+const specs=o=>`<div class="specs">${Object.entries(o).map(([k,v])=>`<div><span>${k}</span><b>${v}</b></div>`).join('')}</div>`;
+
+document.addEventListener('click',e=>{
+  const d=e.target.closest('[data-d]');
+  if(d){const x=DESIGNS.find(z=>z.id===d.dataset.d);
+    openModal(`<div class="modal-art">${artOf(x)}</div><div class="modal-body"><button class="xbtn" aria-label="Close">✕</button><div class="eyebrow">${x.cat}</div><h3>${x.title}</h3><p>${x.desc}</p>${specs(x.specs)}<a href="#contact" class="btn btn-dark" onclick="closeAll()">Request something similar <span class="arr">→</span></a></div>`);return}
+  const pv=e.target.closest('[data-pv]');
+  if(pv){const x=PRODUCTS.find(z=>z.id===pv.dataset.pv);
+    openModal(`<div class="modal-art" style="display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#fff,#efe7da)"><div style="width:78%">${artOf(x)}</div></div><div class="modal-body"><button class="xbtn" aria-label="Close">✕</button><div class="eyebrow">${x.cat}</div><h3>${x.name}</h3><p>${x.desc}</p>${specs(x.specs)}<div style="display:flex;align-items:center;justify-content:space-between;gap:1rem"><span class="price" style="font-size:1.6rem">${money(x.price)}</span><button class="add" data-add="${x.id}" style="padding:.9rem 1.4rem">+ Add to bag</button></div></div>`);return}
+  const a=e.target.closest('[data-add]');
+  if(a){addToCart(a.dataset.add);a.classList.add('done');a.textContent='✓ Added';setTimeout(()=>{a.classList.remove('done');a.textContent=a.closest('.modal')?'+ Add to bag':'+ Add'},1400)}
+});
+
+/* =========================================================
+   CART
+   ========================================================= */
+let cart={};
+try{cart=JSON.parse(localStorage.getItem('mw-cart')||'{}')}catch(e){cart={}}
+const save=()=>{try{localStorage.setItem('mw-cart',JSON.stringify(cart))}catch(e){}};
+function addToCart(id){cart[id]=(cart[id]||0)+1;save();renderCart();toast(`<b>${PRODUCTS.find(p=>p.id===id).name}</b> added to your bag`)}
+function renderCart(){
+  const ids=Object.keys(cart).filter(k=>cart[k]>0);
+  const n=ids.reduce((s,k)=>s+cart[k],0);
+  $('#cartCount').textContent=n;$('#cartCount').classList.toggle('show',n>0);
+  if(!ids.length){$('#cartItems').innerHTML=`<div class="empty"><svg width="54" height="54" viewBox="0 0 60 60" style="margin:0 auto 1rem"><polygon points="15,4.7 45,4.7 60,30 45,55.3 15,55.3 0,30" fill="none" stroke="#c9a063"/></svg>Your bag is empty.<br><a href="#shop" onclick="closeAll()" style="color:var(--gold3);font-weight:600">Browse the shop →</a></div>`;$('#cartFoot').style.display='none';return}
+  $('#cartFoot').style.display='grid';
+  let total=0,lines=[];
+  $('#cartItems').innerHTML=ids.map(id=>{const p=PRODUCTS.find(x=>x.id===id);total+=p.price*cart[id];lines.push(`• ${cart[id]} × ${p.name} (${money(p.price)})`);
+    return `<div class="ci"><div class="thumb">${artOf(p)}</div><div><h4>${p.name}</h4><div class="qty"><button data-q="${id}" data-v="-1">−</button><span>${cart[id]}</span><button data-q="${id}" data-v="1">+</button></div></div><b>${money(p.price*cart[id])}</b></div>`}).join('');
+  $('#cartTotal').textContent=money(total);
+  $('#checkout').href=wa(`Hello MelaWood! I'd like to order:\n${lines.join('\n')}\n\nTotal: ${money(total)}\n\nName:\nDelivery area:`);
+}
+$('#cartItems').onclick=e=>{const b=e.target.closest('[data-q]');if(!b)return;cart[b.dataset.q]=Math.max(0,cart[b.dataset.q]+ +b.dataset.v);if(!cart[b.dataset.q])delete cart[b.dataset.q];save();renderCart()};
+$('#cartBtn').onclick=()=>{document.body.classList.add('lock');$('#drawer').classList.add('show');$('#scrim').classList.add('show')};
+$('#closeCart').onclick=closeAll;
+let tt;function toast(h){const t=$('#toast');t.innerHTML=h;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200)}
+renderCart();
+
+/* contact form -> WhatsApp */
+$('#cForm').onsubmit=e=>{
+  e.preventDefault();const f=new FormData(e.target);
+  const url=wa(`Hello MelaWood!\nName: ${f.get('name')}\nPhone: ${f.get('phone')||'-'}\nInterested in: ${f.get('topic')}\n\n${f.get('msg')}`);
+  $('#fNote').innerHTML=`Your message is ready — <a href="${url}" target="_blank" rel="noopener" style="color:var(--gold3);font-weight:600">open WhatsApp to send it →</a><br>Or message us directly at ${CONFIG.whatsappDisplay}.`;
+};
+
+/* =========================================================
+   CHRISTMAS extras
+   ========================================================= */
+let snowOn=false;
+function startSnow(){if(snowOn)return;snowOn=true;const s=$('#snow');
+  for(let i=0;i<60;i++){const f=document.createElement('i');const sz=Math.random()*4+1.5;
+    f.style.cssText=`left:${Math.random()*100}%;width:${sz}px;height:${sz}px;opacity:${Math.random()*.6+.2};animation-duration:${Math.random()*10+8}s;animation-delay:-${Math.random()*18}s;--dx:${(Math.random()-.5)*120}px`;s.appendChild(f)}}
+function tick(){
+  const now=new Date(),y=now.getMonth()===11&&now.getDate()>25?now.getFullYear()+1:now.getFullYear();
+  let ms=Math.max(0,new Date(y,11,25)-now);
+  const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60,s=Math.floor(ms/1e3)%60;
+  $('#countdown').innerHTML=[[d,'Days'],[h,'Hours'],[m,'Min'],[s,'Sec']].map(([v,l])=>`<div><b>${String(v).padStart(2,'0')}</b><small>${l}</small></div>`).join('');
+}
+tick();setInterval(tick,1000);
+$('#marq').textContent=('✦ Handmade Christmas Collection ✦ Limited Quantities ✦ Personalized Ornaments ✦ Order Before December 18 ').repeat(6);
+
+route();
+</script>
+</body>
+</html>
